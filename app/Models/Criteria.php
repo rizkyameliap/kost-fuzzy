@@ -8,6 +8,8 @@ class Criteria extends Model
 {
     use HasFactory;
 
+    protected $table = 'criteria';
+
     protected $fillable = [
         'code', 'name', 'description', 'weight', 'type', 'is_active'
     ];

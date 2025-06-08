@@ -10,7 +10,7 @@ return new class extends Migration
         Schema::create('kost_evaluations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('kost_id')->constrained()->onDelete('cascade');
-            $table->foreignId('criteria_id')->constrained()->onDelete('cascade');
+            $table->foreignId('criteria_id')->constrained('criteria')->onDelete('cascade');
             $table->decimal('raw_value', 10, 2); // nilai asli
             $table->decimal('fuzzy_value', 5, 2); // nilai setelah fuzzifikasi
             $table->decimal('normalized_value', 8, 6); // nilai setelah normalisasi
