@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2"><i class="fas fa-tachometer-alt me-2"></i>Dashboard Admin</h1>
+        <h1 class="h2"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</h1>
     </div>
 
     <div class="row">
@@ -75,13 +75,13 @@
                 <div class="card-body">
                     <p>Klik tombol di bawah untuk memproses perhitungan fuzzy SAW berdasarkan data kost dan kriteria yang
                         ada.</p>
-                    <form action="{{ route('admin.results.calculate') }}" method="POST" class="d-inline">
+                    <form action="{{ route('results.calculate') }}" method="POST" class="d-inline">
                         @csrf
                         <button type="submit" class="btn btn-warning btn-lg">
                             <i class="fas fa-play me-2"></i>Jalankan Perhitungan SAW
                         </button>
                     </form>
-                    <a href="{{ route('admin.results.index') }}" class="btn btn-info btn-lg ms-2">
+                    <a href="{{ route('results.index') }}" class="btn btn-info btn-lg ms-2">
                         <i class="fas fa-chart-bar me-2"></i>Lihat Hasil
                     </a>
                 </div>
