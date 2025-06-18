@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
@@ -18,22 +19,29 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // Admin Routes
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-    
+
     // Kost Management
-    Route::get('/kosts', [AdminController::class, 'kosts'])->name('kosts');
-    Route::get('/kosts/create', [AdminController::class, 'createKost'])->name('kosts.create');
-    Route::post('/kosts', [AdminController::class, 'storeKost'])->name('kosts.store');
-    Route::get('/kosts/{kost}/edit', [AdminController::class, 'editKost'])->name('kosts.edit');
-    Route::put('/kosts/{kost}', [AdminController::class, 'updateKost'])->name('kosts.update');
-    Route::delete('/kosts/{kost}', [AdminController::class, 'destroyKost'])->name('kosts.destroy');
-    
+    Route::prefix('kosts')->name('kosts.')->group(function () {
+        Route::get('/', [AdminController::class, 'kosts'])->name('index');
+        Route::get('/create', [AdminController::class, 'createKost'])->name('create');
+        Route::post('/', [AdminController::class, 'storeKost'])->name('store');
+        Route::get('/{kost}/edit', [AdminController::class, 'editKost'])->name('edit');
+        Route::put('/{kost}', [AdminController::class, 'updateKost'])->name('update');
+        Route::delete('/{kost}', [AdminController::class, 'destroyKost'])->name('destroy');
+    });
+
     // Criteria Management
-    Route::get('/criteria', [AdminController::class, 'criteria'])->name('criteria');
-    Route::put('/criteria', [AdminController::class, 'updateCriteria'])->name('criteria.update');
-    
+    Route::prefix('criteria')->name('criteria.')->group(function () {
+        Route::get('/', [AdminController::class, 'criteria'])->name('index');
+        Route::put('/', [AdminController::class, 'updateCriteria'])->name('update');
+    });
+
     // SAW Calculation
-    Route::post('/calculate-saw', [AdminController::class, 'calculateSaw'])->name('calculate.saw');
-    Route::get('/results', [AdminController::class, 'results'])->name('results');
+    Route::prefix('saw')->name('results.')->group(function () {
+        Route::post('/calculate-saw', [AdminController::class, 'calculateSaw'])->name('calculate');
+        Route::get('/results', [AdminController::class, 'results'])->name('index');
+        Route::get('/graphic', [AdminController::class, 'graphic'])->name('graphic');
+    });
 });
 
 // Mahasiswa Routes
