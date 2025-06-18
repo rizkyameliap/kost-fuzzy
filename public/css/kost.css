@@ -1,0 +1,283 @@
+body {
+    /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;  
+    padding: 2rem;
+    }
+
+.table-header {
+    background: linear-gradient(135deg, #0d6efd, #0056b3);
+    color: white;
+    border: none;
+}
+
+.table-header th {
+    border: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    padding: 1.2rem 1.5rem;
+    min-width: 180px;
+    white-space: nowrap;
+}
+
+.table tbody tr {
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.table tbody tr:hover {
+    background: linear-gradient(90deg, rgba(13, 110, 253, 0.1), rgba(13, 110, 253, 0.05));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.2);
+}
+
+.table td {
+    padding: 1.2rem 1.5rem;
+    vertical-align: middle;
+    border: none;
+    min-width: 180px;
+    white-space: nowrap;
+}
+
+.table th {
+    min-width: 180px;
+    white-space: nowrap;
+}
+
+.facility-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.facility-list li {
+    padding: 0.25rem 0;
+    font-size: 0.85rem;
+}
+
+.facility-list li i {
+    color: #0d6efd;
+    margin-right: 0.5rem;
+    width: 15px;
+}
+
+.price-tag {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: 600;
+    display: inline-block;
+    box-shadow: 0 3px 10px rgba(40, 167, 69, 0.3);
+}
+
+.rating-stars {
+    color: #ffc107;
+    font-size: 0.9rem;
+}
+
+        .btn-action {
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 0.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-view {
+            background: linear-gradient(135deg, #17a2b8, #138496);
+            color: white;
+        }
+
+        .btn-view:hover {
+            background: linear-gradient(135deg, #138496, #117a8b);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(23, 162, 184, 0.4);
+            color: white;
+        }
+
+        .btn-edit {
+            background: linear-gradient(135deg, #ffc107, #e0a800);
+            color: #212529;
+        }
+
+        .btn-edit:hover {
+            background: linear-gradient(135deg, #e0a800, #d39e00);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+            color: #212529;
+        }
+
+        .btn-delete {
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            color: white;
+        }
+
+        .btn-delete:hover {
+            background: linear-gradient(135deg, #c82333, #bd2130);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
+            color: white;
+        }
+
+        .btn-add {
+            border-radius: 50px;
+            padding: 1rem 1.3rem;
+            font-size: 1rem;
+            font-weight: 500;
+            margin: 0.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #529ae1, #131e96);
+            color: white;
+        }
+
+        .btn-add:hover {
+            background: linear-gradient(135deg, #3c77b3, #131e96);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(62, 152, 216, 0.986);
+            color: white;
+        }
+
+        .badge-status {
+            padding: 0.5rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-excellent {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+        }
+
+        .badge-good {
+            background: linear-gradient(135deg, #17a2b8, #20c997);
+            color: white;
+        }
+
+        .badge-fair {
+            background: linear-gradient(135deg, #ffc107, #fd7e14);
+            color: #212529;
+        }
+
+        .title-header {
+            background: linear-gradient(135deg, #0d6efd, #6f42c1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+
+        .table-responsive {
+            border-radius: 15px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-responsive::-webkit-scrollbar {
+            height: 12px;
+        }
+
+        .table-responsive::-webkit-scrollbar-track {
+            background: #f1f3f4;
+            border-radius: 6px;
+        }
+
+        .table-responsive::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #0d6efd, #6f42c1);
+            border-radius: 6px;
+            border: 2px solid #f1f3f4;
+        }
+
+        .table-responsive::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #0b5ed7, #5a32a3);
+        }
+
+        .table {
+            max-width: 1400px;
+        }
+
+        @media (max-width: 768px) {
+            .btn-action {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.75rem;
+                margin: 0.05rem;
+            }
+
+            .facility-list li {
+                font-size: 0.8rem;
+            }
+
+            .table td {
+                padding: 0.75rem 0.5rem;
+            }
+
+            .title-header {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Kolom spesifik width */
+        .col-nama {
+            min-width: 200px;
+        }
+
+        .col-alamat {
+            min-width: 220px;
+        }
+
+        .col-pemilik {
+            min-width: 180px;
+        }
+
+        .col-kontak {
+            min-width: 200px;
+        }
+
+        .col-harga {
+            min-width: 160px;
+        }
+
+        .col-jarak {
+            min-width: 180px;
+        }
+
+        .col-rating {
+            min-width: 140px;
+        }
+
+        .col-fasilitas {
+            min-width: 250px;
+        }
+
+        .col-action {
+            min-width: 200px;
+        }
+
+        .contact-info i {
+            color: #0d6efd;
+            margin-right: 0.5rem;
+        }
+
+        .facility-list {
+            white-space: normal;
+        }

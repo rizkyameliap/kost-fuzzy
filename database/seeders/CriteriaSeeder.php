@@ -1,4 +1,5 @@
 <?php
+
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
@@ -52,7 +53,7 @@ class CriteriaSeeder extends Seeder
                 'type' => 'benefit'
             ]
         ];
-        
+
         foreach ($criteria as $criterion) {
             Criteria::create($criterion);
         }

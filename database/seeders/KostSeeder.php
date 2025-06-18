@@ -11,17 +11,16 @@ class KostSeeder extends Seeder
     {
         $kosts = [
             [
-                'name' => 'Wisma Gadafti',
-                'address' => 'Jl. Merdeka No. 123, Kota',
-                'owner_name' => 'Ibu Sari',
+                'name' => 'Wisma Soedirman',
+                'address' => 'Dusun 2, Blater, Kec. Kalimanah, Kabupaten Purbalingga, Jawa Tengah',
+                'owner_name' => 'Pak Deni',
                 'phone' => '081234567890',
-                'price_per_year' => 4000000,
-                'distance_to_campus' => 450,
-                'facility_count' => 4,
-                'cleanliness' => 'Cukup',
-                'security' => 'Ya',
+                'price_per_year' => 7500000,
+                'distance_to_campus' => 600,
+                'cleanliness' => 'Ya',
+                'security' => 'TIdak',
                 'food_access' => 'Mudah',
-                'facilities' => ['Ruang Kumpul', 'Dapur', 'Tempat Parkir', 'Meja Belajar'],
+                'facilities' => ['Ruang Kumpul', 'Dapur', 'Tempat Parkir', 'Meja Belajar', 'Kulkas', 'Kamar Mandi', 'AC'],
                 'description' => 'Kost nyaman dengan fasilitas lengkap'
             ],
             [
@@ -31,7 +30,6 @@ class KostSeeder extends Seeder
                 'phone' => '081234567891',
                 'price_per_year' => 6000000,
                 'distance_to_campus' => 600,
-                'facility_count' => 5,
                 'cleanliness' => 'Tidak',
                 'security' => 'Ya',
                 'food_access' => 'Mudah',
@@ -45,7 +43,6 @@ class KostSeeder extends Seeder
                 'phone' => '081234567892',
                 'price_per_year' => 6500000,
                 'distance_to_campus' => 650,
-                'facility_count' => 6,
                 'cleanliness' => 'Ya',
                 'security' => 'Ya',
                 'food_access' => 'Mudah',
@@ -59,7 +56,6 @@ class KostSeeder extends Seeder
                 'phone' => '081234567893',
                 'price_per_year' => 5500000,
                 'distance_to_campus' => 1400,
-                'facility_count' => 5,
                 'cleanliness' => 'Cukup',
                 'security' => 'Ya',
                 'food_access' => 'Sulit',
@@ -73,7 +69,6 @@ class KostSeeder extends Seeder
                 'phone' => '081234567894',
                 'price_per_year' => 6000000,
                 'distance_to_campus' => 2000,
-                'facility_count' => 6,
                 'cleanliness' => 'Ya',
                 'security' => 'Ya',
                 'food_access' => 'Sulit',
@@ -81,7 +76,7 @@ class KostSeeder extends Seeder
                 'description' => 'Kost dengan fasilitas lengkap tapi agak jauh'
             ]
         ];
-        
+
         foreach ($kosts as $kost) {
             Kost::create($kost);
         }
