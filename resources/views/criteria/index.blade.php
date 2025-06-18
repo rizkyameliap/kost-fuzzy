@@ -190,7 +190,7 @@
                                         <div class="modal fade" id="edit{{ $criteria->id }}" tabindex="-1"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
-                                                <form action="{{ route('admin.criteria.update') }}" method="POST">
+                                                <form action="{{ route('criteria.update') }}" method="POST">
                                                     @csrf
                                                     @method('put')
                                                     <div class="modal-content">

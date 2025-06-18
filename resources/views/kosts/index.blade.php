@@ -227,12 +227,12 @@
                                     {{-- <button class="btn btn-view btn-action" data-bs-toggle="tooltip" title="Lihat Detail">
                                         <i class="fas fa-eye"></i> View
                                     </button> --}}
-                                    <a href="{{ route('admin.kosts.edit', $kost->id) }}">
+                                    <a href="{{ route('kosts.edit', $kost->id) }}">
                                         <button class="btn btn-edit btn-action" data-bs-toggle="tooltip" title="Edit Data">
                                             <i class="fas fa-edit"></i> Edit
                                         </button>
                                     </a>
-                                    <form action="{{ route('admin.kosts.destroy', $kost->id) }}" method="post">
+                                    <form action="{{ route('kosts.destroy', $kost->id) }}" method="post">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-delete btn-action" data-bs-toggle="tooltip"
@@ -253,8 +253,8 @@
         </div>
     </div>
 
-    <a href="{{ route('admin.kosts.create') }}" class="btn btn-add position-fixed bottom-0 end-0 m-4"
-        data-bs-toggle="tooltip" title="Tambah Data">
+    <a href="{{ route('kosts.create') }}" class="btn btn-add position-fixed bottom-0 end-0 m-4" data-bs-toggle="tooltip"
+        title="Tambah Data">
         <i class="fa-solid fa-plus"></i>
     </a>
 

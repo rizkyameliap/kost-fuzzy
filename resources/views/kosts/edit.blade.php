@@ -15,10 +15,10 @@
                         <p class="mb-0 opacity-75">Lengkapi informasi properti Anda</p>
                     </div>
                     <div class="card-body p-4">
-                        <form action="{{ route('admin.kosts.update', $kost->id) }}" method="POST">
+                        <form action="{{ route('kosts.update', $kost->id) }}" method="POST">
                             @csrf
                             @method('put')
-                            @include('admin.kosts.form')
+                            @include('kosts.form')
 
                             <!-- Tombol Submit -->
                             <div class="row">

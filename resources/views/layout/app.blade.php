@@ -32,7 +32,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             @if (Auth::user()->isAdmin())
-                                <li><a class="dropdown-item" href="{{ route('admin.dashboard') }}">
+                                <li><a class="dropdown-item" href="{{ route('dashboard') }}">
                                         <i class="fas fa-tachometer-alt me-1"></i>Dashboard
                                     </a></li>
                             @else
@@ -60,78 +60,38 @@
 
     <main class="container-fluid">
         <div class="row">
-            @auth
-                @if (Auth::user()->isAdmin())
-                    <nav class="col-md-2 d-md-block bg-light sidebar">
-                        <div class="position-sticky pt-3">
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin.dashboard') }}">
-                                        <i class="fas fa-tachometer-alt me-2"></i>Dashboard
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin.kosts.index') }}">
-                                        <i class="fas fa-building me-2"></i>Data Kost
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin.criteria.index') }}">
-                                        <i class="fas fa-sliders-h me-2"></i>Kriteria
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin.results.index') }}">
-                                        <i class="fas fa-chart-bar me-2"></i>Hasil SAW
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                    <main class="col-md-10 ms-sm-auto px-md-4">
-                    @else
-                        <nav class="col-md-2 d-md-block bg-light sidebar">
-                            <div class="position-sticky pt-3">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('mahasiswa.dashboard') }}">
-                                            <i class="fas fa-tachometer-alt me-2"></i>Dashboard
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('mahasiswa.recommendations') }}">
-                                            <i class="fas fa-star me-2"></i>Rekomendasi
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav>
-                        <main class="col-md-10 ms-sm-auto px-md-4">
-                @endif
-            @else
-                <main class="col-12">
-                @endauth
-
-                @if (session('success'))
-                    <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
-                        {{ session('success') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                    </div>
-                @endif
-
-                @if (session('error'))
-                    <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
-                        {{ session('error') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                    </div>
-                @endif
-
+            <nav class="col-md-2 d-md-block bg-light sidebar">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('dashboard') }}">
+                                <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('kosts.index') }}">
+                                <i class="fas fa-building me-2"></i>Data Kost
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('criteria.index') }}">
+                                <i class="fas fa-sliders-h me-2"></i>Kriteria
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('results.index') }}">
+                                <i class="fas fa-chart-bar me-2"></i>Hasil SAW
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main class="col-md-10 ms-sm-auto px-md-4">
                 @yield('content')
             </main>
         </div>
     </main>
 
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('js/saw.js') }}"></script>
     @yield('scripts')

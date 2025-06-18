@@ -16,7 +16,7 @@ class AdminController extends Controller
 
     public function __construct(FuzzySawService $fuzzySawService)
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
         $this->fuzzySawService = $fuzzySawService;
     }
 
@@ -26,19 +26,19 @@ class AdminController extends Controller
         $activeCriteria = Criteria::where('is_active', true)->count();
         $lastCalculation = SawResult::latest('calculated_at')->first();
 
-        return view('admin.dashboard', compact('totalKosts', 'activeCriteria', 'lastCalculation'));
+        return view('dashboard', compact('totalKosts', 'activeCriteria', 'lastCalculation'));
     }
 
     public function kosts()
     {
         $theme = 'kost';
         $kosts = Kost::paginate(10);
-        return view('admin.kosts.index', compact('kosts', 'theme'));
+        return view('kosts.index', compact('kosts', 'theme'));
     }
 
     public function createKost()
     {
-        return view('admin.kosts.create');
+        return view('kosts.create');
     }
 
     public function storeKost(Request $request)
@@ -71,12 +71,12 @@ class AdminController extends Controller
             'description' => $request->description,
         ]);
 
-        return redirect()->route('admin.kosts.index')->with('success', 'Data kost berhasil ditambahkan.');
+        return redirect()->route('kosts.index')->with('success', 'Data kost berhasil ditambahkan.');
     }
 
     public function editKost(Kost $kost)
     {
-        return view('admin.kosts.edit', compact('kost'));
+        return view('kosts.edit', compact('kost'));
     }
 
     public function updateKost(Request $request, Kost $kost)
@@ -109,19 +109,19 @@ class AdminController extends Controller
             'description' => $request->description,
         ]);
 
-        return redirect()->route('admin.kosts.index')->with('success', 'Data kost berhasil diupdate.');
+        return redirect()->route('kosts.index')->with('success', 'Data kost berhasil diupdate.');
     }
 
     public function destroyKost(Kost $kost)
     {
         $kost->delete();
-        return redirect()->route('admin.kosts.index')->with('success', 'Data kost berhasil dihapus.');
+        return redirect()->route('kosts.index')->with('success', 'Data kost berhasil dihapus.');
     }
 
     public function criteria()
     {
         $criteria = Criteria::all();
-        return view('admin.criteria.index', compact('criteria'));
+        return view('criteria.index', compact('criteria'));
     }
 
     public function updateCriteria(Request $request)
@@ -135,7 +135,7 @@ class AdminController extends Controller
             Criteria::find($id)->update(['weight' => $data['weight']]);
         }
 
-        return redirect()->route('admin.criteria.index')->with('success', 'Bobot kriteria berhasil diupdate.');
+        return redirect()->route('criteria.index')->with('success', 'Bobot kriteria berhasil diupdate.');
     }
 
     public function calculateSaw()
@@ -143,7 +143,7 @@ class AdminController extends Controller
         $result = $this->fuzzySawService->processKostData();
 
         if ($result['success']) {
-            return redirect()->route('admin.results.index')->with('success', $result['message']);
+            return redirect()->route('results.index')->with('success', $result['message']);
         } else {
             return back()->with('error', $result['message']);
         }
@@ -166,6 +166,6 @@ class AdminController extends Controller
         }
 
         $results = SawResult::with('kost')->orderBy('rank', 'asc')->get();
-        return view('admin.results.index', compact('results', 'matrixFuzz', 'matrixRaw', 'hasil'));
+        return view('results.index', compact('results', 'matrixFuzz', 'matrixRaw', 'hasil'));
     }
 }
